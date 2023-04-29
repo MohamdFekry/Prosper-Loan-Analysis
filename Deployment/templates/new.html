@@ -1,0 +1,484 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <!-- <link rel="stylesheet" href="main.css"> -->
+        <style>*, *:before, *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+          
+          body {
+            font-family: 'Nunito', sans-serif;
+            color: #384047;
+            background-color: gainsboro;
+          }
+          
+          form {
+            max-width: 300px;
+            margin: 100px auto;
+            padding: 10px 20px;
+            background: #f4f7f8;
+            border-radius: 8px;
+          }
+          
+          h1 {
+            
+            margin: 30px 0 50px 0;
+            text-align: center;
+          }
+          
+          input[type="text"],
+          input[type="password"],
+          input[type="date"],
+          input[type="datetime"],
+          input[type="email"],
+          input[type="number"],
+          input[type="search"],
+          input[type="tel"],
+          input[type="time"],
+          input[type="url"],
+          textarea,
+          select {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            font-size: 16px;
+            height: auto;
+            margin: 0;
+            outline: 0;
+            padding: 15px;
+            width: 100%;
+            background-color: #e8eeef;
+            color: #8a97a0;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+            margin-bottom: 30px;
+          }
+          
+          input[type="radio"],
+          input[type="checkbox"] {
+            margin: 0 4px 8px 0;
+          }
+          
+          select {
+            padding: 6px;
+            height: 32px;
+            border-radius: 2px;
+          }
+          
+          button {
+            padding: 19px 39px 18px 39px;
+            color: #FFF;
+            background-color: #4bc970;
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            border-radius: 5px;
+            width: 50%;
+            border: 1px solid #3ac162;
+            border-width: 1px 1px 3px;
+            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+            margin-bottom: 40px;
+            margin-left: 25%;
+          }
+          
+          fieldset {
+            margin-bottom: 30px;
+            border: none;
+          }
+          
+          legend {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 8px;
+          }
+          
+          label.light {
+            font-weight: 300;
+            display: inline;
+          }
+          
+          .number {
+            background-color: #5fcf80;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-right: 4px;
+            line-height: 30px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+            border-radius: 100%;
+          }
+          
+          @media screen and (min-width: 480px) {
+          
+            form {
+              max-width: 50%;
+            }
+          
+          }
+          </style>
+    </head>
+    <body>
+      <div class="row">
+    <div class="col-md-12">
+      <form action="/predict" method="post">
+        <h1>Credit Risk Analyzer</h1>
+        
+        <fieldset>
+          
+          <legend><span class="number">1</span>Loan Related Info</legend>
+
+          <br>
+          <label><b>Loan Amount</b></label>
+          <input type="text" name="LoanOriginalAmount" placeholder="Enter applied loan amount">
+
+          <label><b>Loan Category</b></label>
+          <select name="LoanType" id="creditgrade">
+            <option value="0">N/A</option>
+            <option value="1">Debt Consolidation</option>
+            <option value="2">Home Improvement</option>
+            <option value="3">Business</option>
+            <option value="4">Personal Loan</option>
+            <option value="5">Student Use</option>
+            <option value="6">Auto</option>
+            <option value="7">Other</option>
+            <option value="8">Baby&Adoption</option>
+            <option value="9">Boat</option>
+            <option value="10">Cosmetic Procedure</option>
+            <option value="11">Engagement Ring</option>
+            <option value="12">Green Loans</option>
+            <option value="13">Household Expenses</option>
+            <option value="14">Large Purchases</option>
+            <option value="15">Medical/Dental</option>
+            <option value="16">MotorCycle</option>
+            <option value="17">RV</option>
+            <option value="18">Taxes</option>
+            <option value="19">Vactions</option>
+            <option value="20">Weding Loans</option>
+          </select>
+        
+
+          <label><b>Term</b></label>
+          <input type="text" name="Term" placeholder="Enter length of the loan period in months">
+
+          <label><b>Interest Rate</b></label>
+          <input type="text" name="BorrowerRate" placeholder="Enter the rate of interest for loan">
+
+          <label><b>Annual Percentage Rate</b></label>
+          <input type="text" name="BorrowerAPR" placeholder="Enter the annual percentage rate for loan">
+
+          <label><b>Monthly Loan Payment</b></label>
+          <input type="text" name="MonthlyLoanPayment" placeholder="Enter the scheduled monthly loan payment for loan">
+        </fieldset>
+        <fieldset>  
+        
+          <legend><span class="number">2</span> Borrower Related Information</legend>
+          <br>
+          <label><b>Prosper Score</b></label>
+          <input type="text" name="ProsperScore" placeholder="Enter prosper score between 1-10">
+          
+          <label><b>Prosper Rating</b></label>
+          <select name="ProsperRating" id="prosperrating">
+            <option value="Missing">N/A</option>
+            <option value="AA">AA</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="HR">HR</option>
+
+
+          </select>
+          <label><b>Credit Grade</b></label>
+          <select name="CreditGrade" id="creditgrade">
+            <option value="UN">N/A</option>
+            <option value="AA">AA</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="HR">HR</option>
+
+          </select>
+
+          <label><b>Credit Score Upper range</b></label>
+          <input type="text" name="CreditScoreRangeUpper" placeholder="Enter the upper range of credit score">
+
+          <label><b>Credit Score Lower range</b></label>
+          <input type="text" name="CreditScoreRangeLower" placeholder="Enter the lower range of credit score">
+
+
+          <label><b>Current Credit Lines</b></label>
+          <input type="text" name="CurrentCreditLines" placeholder="Enter the number of current credit lines">
+
+          <label><b>Open Credit Lines</b></label>
+          <input type="text" name="OpenCreditLines" placeholder="Enter the number of open credit lines">
+
+          <label><b>Total Credit Lines past 7 years</b></label>
+          <input type="text" name="TotalCreditLinespast7years" placeholder="Enter the number of total credit lines from past 7 years">
+
+
+          <label><b>Borrower State</b></label>
+          <select name="BorrowerState" id="borrowerstate">
+            <option value="CA">CA</option>
+            <option value="TX">TX</option>
+            <option value="NY">NY</option>
+            <option value="FL">FL</option>
+            <option value="IL">IL</option>
+            <option value="GA">GA</option>
+            <option value="OH">OH</option>
+            <option value="MI">MI</option>
+            <option value="VA">VA</option>
+            <option value="NJ">NJ</option>
+            <option value="NC">NC</option>
+            <option value="WA">WA</option>
+            <option value="PA">PA</option>
+            <option value="MD">MD</option>
+            <option value="MO">MO</option>
+            <option value="MN">MN</option>
+            <option value="MA">MA</option>
+            <option value="CO">CO</option>
+            <option value="IN">IN</option>
+            <option value="AZ">AZ</option>
+            <option value="WI">WI</option>
+            <option value="OR">OR</option>
+            <option value="TN">TN</option>
+            <option value="AL">AL</option>
+            <option value="CT">CT</option>
+            <option value="SC">SC</option>
+            <option value="NV">NV</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="OK">OK</option>
+            <option value="LA">LA</option>
+            <option value="UT">UT</option>
+            <option value="AR">AR</option>
+            <option value="MS">MS</option>
+            <option value="NE">NE</option>
+            <option value="ID">ID</option>
+            <option value="NH">NH</option>
+            <option value="NM">NM</option>
+            <option value="RI">RI</option>
+            <option value="HI">HI</option>
+            <option value="WV">WV</option>
+            <option value="DC">DC</option>
+            <option value="MT">MT</option>
+            <option value="DE">DE</option>
+            <option value="VT">VT</option>
+            <option value="SD">SD</option>
+            <option value="IA">IA</option>
+            <option value="WY">WY</option>
+            <option value="ME">ME</option>
+            <option value="ND">ND</option>
+          </select>
+          
+          <label><b>Occupation</b></label>
+          <select name="Occupation" id="occupation">
+            <option value="Other">Other</option>
+            <option value="Professional">Professional</option>
+            <option value="Computer Programmer">Computer Programmer</option>
+            <option value="Executive">Executive</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Administrative Assistant">Administrative Assistant</option>
+            <option value="Analyst">Analyst</option>
+            <option value="Sales-Commission">Sales-Commission</option>
+            <option value="Accountant/CPA">Accountant/CPA</option>
+            <option value="Clerical">Clerical</option>
+            <option value="Sales-Retail">Sales-Retail</option>
+            <option value="Skilled Labor">Skilled Labor</option>
+            <option value="Retail Management">Retail Management</option>
+            <option value="Nurse(RN)">Nurse(RN)</option>
+            <option value="Construction">Construction</option>
+            <option value="Truck Driver">Truck Driver</option>
+            <option value="Laborer">Laborer</option>
+            <option value="Police Officer/Correction Officer">Police Officer/Correction Officer</option>
+            <option value="Civil Service">Civil Service</option>
+            <!-- <option value="20">Weding Loans</option> -->
+            <option value="Engineer-Mechanical">Engineer-Mechanical</option>
+            <option value="Military Enlisted">Military Enlisted</option>
+            <option value="Food Service Management">Food Service Management</option>
+            <option value="Engineer Electrical">Engineer Electrical</option>
+            <option value="Food Service">Food Service</option>
+            <option value="Medical Technician">Medical Technician</option>
+            <option value="Attorny">Attorny</option>
+            <option value="Tradesman-Mechanic">Tradesman-Mechanic</option>
+            <option value="Social Worker">Social Worker</option>
+            <option value="Postal Service">Postal Service</option>
+            <option value="Professor">Professor</option>
+            <option value="Realtor">Realtor</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Nurse(LPN)">Nurse(LPN)</option>
+            <option value="Nurse's Aide">Nurse's Aide</option>
+            <option value="Tradesman-Electrician">Tradesman-Electrician</option>
+            <option value="Waiter/Waitress">Waiter/Waitress</option>
+            <option value="Fireman">Fireman</option>
+            <option value="Scientist">Scientist</option>
+            <option value="Military Officer">Military Officer</option>
+            <option value="Bus Driver">Bus Driver</option>
+            <option value="Principal">Principal</option>
+            <option value="Teacher's Aide">Teacher's Aide</option>
+            <option value="Student-College Graduate">Student-College Graduate</option>
+            <option value="Engineer-Chemical">Engineer-Chemical</option>
+            <option value="Investor">Investor</option>
+            <option value="Architect">Architect</option>
+            <option value="Pilot-Private/Commercial">Pilot-Private/Commercial</option>
+            <option value="Clergy">Clergy</option>
+            <option value="Student-College Senior">Student-College Senior</option>
+            <option value="Car Dealer">Car Dealer</option>
+            <option value="Chemist">Chemist</option>
+            <option value="Psychologist">Psychologist</option>
+            <option value="Biologist">Biologist</option>
+            <option value="Religious">Religious</option>
+            <option value="Flight Attendant">Flight Attendant</option>
+            <option value="Tradesman-Carpenter">Tradesman-Carpenter</option>
+            <option value="Homemaker">Homemaker</option>
+            <option value="Student-College Junior">Student-College Junior</option>
+            <option value="Tradesman-Plumber">Tradesman-Plumber</Tradesman-Plumber></option>
+            <option value="Student-College Sophomore">Student-College Sophomore</option>
+            <option value="Dentist">Dentist</option>
+            <option value="Student-College Freshman">Student-College Freshman</option>
+            <option value="Student-Community College">Student-Community College</option>
+            <option value="Judge">Judge</option>
+            <option value="Student-Technical School">Student-Technical School</option>
+
+          </select>
+          <label><b>Employment Status</b></label>
+          <select name="EmploymentStatus" id="employmentstatus">
+            <option value="N/A">N/A</option>
+            <option value="Other">Other</option>
+            <option value="Employed">Employed</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Self-employed">Self-employed</option>
+            <option value="Not-employed">Not-employed</option>
+            <option value="Retired">Retired</option>
+            <option value="Part-time">Part-time</option>
+
+          </select>
+          <label><b>Employment Status Duration</b></label>
+          <input type="text" name="EmploymentStatusDuration" placeholder="Enter the employment duration in months">
+
+          <label><b>Monthly Income</b></label>
+          <input type="text" name="StatedMonthlyIncome" placeholder="Enter the monthly income of borrower">
+
+        </select>
+        <label><b>Borrower's Income Range</b></label>
+        <select name="IncomeRange" id="incomerange">
+          <option value="Not displayed">Not displayed</option>
+          <option value="Not employed">Not employed</option>
+          <option value="$0">$0</option>
+          <option value="$1-24,999">$1-24,999</option>
+          <option value="$75,000-99,999">$75,000-99,999</option>
+          <option value="$100,000+">$100,000+</option>
+          <option value="$50,000-74,999">$50,000-74,999</option>
+          <option value="$25,000-49,999">$25,000-49,999</option>
+
+        </select>
+
+        <label><b>Debt to Income Ratio</b></label>
+          <input type="text" name="DebtToIncomeRatio" placeholder="Enter the debt to income">
+
+        <br>
+          <label><b>Is Borrower Home Owner?</b></label>
+          <input type="radio" id="yes" value="1" name="IsBorrowerHomeowner"><label for="yes" class="light">YES</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="no" value="0" name="IsBorrowerHomeowner"><label for="no" class="light">NO</label>
+        <br>
+        <br>
+          <label><b>Is Borrower's income verifiable?</b></label>
+          <input type="radio" id="yes" value="1" name="IncomeVerifiable"><label for="yes" class="light">YES</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="no" value="0" name="IncomeVerifiable"><label for="no" class="light">NO</label>
+        <br>
+        <br>
+          <label><b>Is Borrower's currently in group?</b></label>
+          <input type="radio" id="yes" value="1" name="CurrentlyInGroup"><label for="yes" class="light">YES</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="no" value="0" name="CurrentlyInGroup"><label for="no" class="light">NO</label>
+
+        <br>
+        <br>
+        <br>
+        <legend><span class="number">3</span>Past Loan Payments Related Info</legend><br>
+        <label><b>Customer Payments</b></label>
+          <input type="text" name="LP_CustomerPayments" placeholder="Enter the Customer Payments">
+        <label><b>Customer Principal Payments</b></label>
+          <input type="text" name="LP_CustomerPrincipalPayments" placeholder="Enter the Customer Principal Payments">
+
+          <label><b>Interest and Fees</b></label>
+          <input type="text" name="LP_InterestandFees" placeholder="Enter the Interest and Fees">
+
+          <label><b>ServiceFees</b></label>
+          <input type="text" name="LP_ServiceFees" placeholder="Enter the ServiceFees">
+
+          <label><b>Collection Fees</b></label>
+          <input type="text" name="LP_CollectionFees" placeholder="Enter the Collection Fees">
+
+          <label><b>Gross Principal Loss</b></label>
+          <input type="text" name="LP_GrossPrincipalLoss" placeholder="Enter the Gross Principal Loss">
+
+          <label><b>Net Principal Loss</b></label>
+          <input type="text" name="LP_NetPrincipalLoss" placeholder="Enter the Net Principal Loss">
+
+
+
+            <br>
+            <br>
+          <legend><span class="number">4</span>Other Information Related to Borrower</legend><br>
+
+          <label><b>Open Revolving Accounts</b></label>
+          <input type="text" name="OpenRevolvingAccounts" placeholder="Enter the number of Open Revolving Accounts">
+        <label><b>Open Revolving Monthly Payment</b></label>
+          <input type="text" name="OpenRevolvingMonthlyPayment" placeholder="Enter the Open Revolving Monthly Payment">
+
+          <label><b>Investors</b></label>
+          <input type="text" name="Investors" placeholder="Enter the number of Investors who funded">
+
+          <label><b>Revolving Credit Balance</b></label>
+          <input type="text" name="RevolvingCreditBalance" placeholder="Enter the Revolving Credit Balance">
+
+          <label><b>Bank card Utilization</b></label>
+          <input type="text" name="BankcardUtilization" placeholder="Enter Bank card Utilization">
+                     
+          <label><b>Available Bank card Credit</b></label>
+          <input type="text" name="AvailableBankcardCredit" placeholder="Enter Available Bank card Credit">  
+
+
+
+        <label><b>TotalInquiries</b></label>
+          <input type="text" name="TotalInquiries" placeholder="Enter the number of inquiries">
+        <label><b>Current Delinquencies</b></label>
+          <input type="text" name="CurrentDelinquencies" placeholder="Enter the current delinquency count">
+
+          <label><b>Amount Delinquent</b></label>
+          <input type="text" name="AmountDelinquent" placeholder="Enter the total delinquent amount">
+
+          <label><b>Delinquencies Last 7 Years </b></label>
+          <input type="text" name="DelinquenciesLast7Years" placeholder="Enter the count of Delinquencies in Last 7 Years">
+
+          <label><b>Trades Never Delinquent (percentage)</b></label>
+          <input type="text" name="TradesNeverDelinquent" placeholder="Enter the percentage of non delinquent trades">
+
+          <label><b>Public Records of Last 10 Years</b></label>
+          <input type="text" name="PublicRecordsLast10Years" placeholder="Enter the public record of last 10 years for loan">
+         </fieldset>
+       
+        <button type="submit" value="predict"><b>Get the Analysis</b></button>
+        <!-- {% if result %}
+        
+            {{result.emi}}
+        {% endif %} -->
+       </form>
+        </div>
+      </div>
+      
+    </body>
+</html>
